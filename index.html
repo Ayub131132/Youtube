@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Balnix01 - Profile</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google AdSense script (replace ca-pub-XXXXXXXXXXXXXXXX with your ID) -->
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+      crossorigin="anonymous">
+    </script>
+
+    <style>
+    /* Remove mobile tap highlight */
+a, a * , button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Remove blue focus outline / background */
+a:focus,
+button:focus {
+  outline: none;
+}
+
+/* Kuch browsers click pe background de dete hain */
+a:active,
+button:active {
+  background-color: transparent;
+}
+      /* Reset & base */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: radial-gradient(circle at top, #020617, #020617 40%, #111827 100%);
+        background-attachment: fixed;
+        color: #e5e7eb;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+        padding: 24px 16px 40px;
+        padding-bottom: 110px; /* ad ke liye space, mobile + laptop dono me */
+        text-align: center;
+
+        /* Text / image selection & long-press block (normal users) */
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+        -webkit-touch-callout: none;
+      }
+
+      /* Subtle countryball style background */
+      .ball-bg {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.12;
+        background-image:
+          radial-gradient(circle at 10% 20%, #ef4444 0, #ef4444 4px, transparent 5px),
+          radial-gradient(circle at 80% 30%, #22c55e 0, #22c55e 4px, transparent 5px),
+          radial-gradient(circle at 20% 80%, #3b82f6 0, #3b82f6 4px, transparent 5px),
+          radial-gradient(circle at 70% 75%, #f97316 0, #f97316 4px, transparent 5px);
+        z-index: 0;
+      }
+
+      .card {
+        background: radial-gradient(circle at top, #020617, #020617 40%, #020617 100%);
+        border-radius: 28px;
+        padding: 24px 18px 26px;
+        max-width: 480px;
+        width: 100%;
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.65);
+        border: 1px solid rgba(248, 113, 113, 0.45);
+        position: relative;
+        overflow: hidden;
+        animation: cardIn 0.7s ease-out;
+        z-index: 1;
+      }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        inset: -1px;
+        background: conic-gradient(
+          from 200deg,
+          rgba(239, 68, 68, 0.45),
+          rgba(56, 189, 248, 0.3),
+          rgba(234, 179, 8, 0.35),
+          rgba(52, 211, 153, 0.4),
+          rgba(239, 68, 68, 0.45)
+        );
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        z-index: -1;
+      }
+
+      .card:hover::before {
+        opacity: 1;
+      }
+
+      .logo-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 16px;
+        position: relative;
+      }
+
+      .logo-glow {
+        position: absolute;
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        background:
+          radial-gradient(circle, rgba(248, 113, 113, 0.65), transparent 65%),
+          radial-gradient(circle at 70% 20%, rgba(59, 130, 246, 0.7), transparent 60%);
+        filter: blur(12px);
+        z-index: 0;
+        animation: glowPulse 3s ease-in-out infinite;
+      }
+
+      .logo-ring {
+        position: relative;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        padding: 4px;
+        background:
+          conic-gradient(
+            from 120deg,
+            #22c55e,
+            #ffffff,
+            #ff9933,
+            #ef4444,
+            #3b82f6,
+            #22c55e
+          );
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+        animation: floatUpDown 3.5s ease-in-out infinite;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #020617;
+        display: block;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.75rem;
+        color: #f97316;
+        background: rgba(15, 23, 42, 0.95);
+        border-radius: 999px;
+        padding: 4px 10px;
+        border: 1px solid rgba(249, 115, 22, 0.6);
+        margin-bottom: 8px;
+      }
+
+      h1 {
+        font-size: 1.9rem;
+        margin-bottom: 4px;
+        position: relative;
+        display: inline-block;
+      }
+
+      h1::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: -4px;
+        width: 0;
+        height: 2px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #f97316, #ef4444, #22c55e, #3b82f6);
+        transform: translateX(-50%);
+        animation: underlineGrow 1.4s ease-out forwards;
+      }
+
+      .tagline {
+        font-size: 0.95rem;
+        color: #9ca3af;
+        margin-top: 10px;
+        margin-bottom: 4px;
+      }
+
+      .pill-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px;
+        margin: 8px 0 6px;
+      }
+
+      .pill {
+        font-size: 0.7rem;
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: rgba(15, 23, 42, 0.9);
+        border: 1px solid rgba(55, 65, 81, 0.9);
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .pill-flag {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: conic-gradient(#ff9933, #ffffff, #138808);
+      }
+
+      .stats {
+        font-size: 0.85rem;
+        color: #d1d5db;
+        margin-bottom: 4px;
+      }
+
+      .upload {
+        font-size: 0.8rem;
+        color: #a5b4fc;
+        margin-bottom: 14px;
+      }
+
+      .about {
+        font-size: 0.9rem;
+        color: #e5e7eb;
+        margin-bottom: 18px;
+        line-height: 1.6;
+      }
+
+      .highlight {
+        color: #f97316;
+        font-weight: 600;
+      }
+
+      .buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+
+      a {
+        text-decoration: none;
+        /* prevent link selection / long-press text menu */
+        -webkit-user-select: none;
+        user-select: none;
+        -webkit-touch-callout: none;
+      }
+
+      button {
+        border: none;
+        padding: 9px 18px;
+        border-radius: 999px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        min-width: 130px;
+        border: 1px solid rgba(15, 23, 42, 0.7);
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+        transition: transform 0.13s ease, opacity 0.13s ease, box-shadow 0.13s ease, filter 0.13s ease;
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        -webkit-user-select: none;
+        user-select: none;
+      }
+
+      button:hover {
+        opacity: 0.94;
+        transform: translateY(-4px) scale(1.02);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+        filter: brightness(1.05);
+      }
+
+      /* Platform specific styles */
+
+      /* YT se circle hataya – simple red gradient */
+      .yt button {
+        background: linear-gradient(135deg, #ff0000, #b91c1c);
+        color: #ffffff;
+      }
+
+      .in button {
+        background: linear-gradient(45deg, #405DE6, #833AB4, #FD1D1D, #FCAF45);
+        color: #ffffff;
+      }
+
+      .te button {
+        background: linear-gradient(135deg, #0088cc, #00b0ff);
+        color: #ffffff;
+      }
+
+      .face button {
+        background: linear-gradient(135deg, #1877F2, #ffffff);
+        color: #0f172a;
+      }
+
+      /* Snapchat se bhi white circle hataya – flat yellow */
+      .snap button {
+        background: #FFFC00;
+        color: #000000;
+      }
+
+      .moj button {
+        background: linear-gradient(45deg, #ffb300, #ff4081);
+        color: #ffffff;
+      }
+
+      .footer-text {
+        margin-top: 8px;
+        font-size: 0.8rem;
+        color: #9ca3af;
+      }
+
+      .footer-text span {
+        color: #facc15;
+      }
+
+      .tiny-note {
+        margin-top: 4px;
+        font-size: 0.7rem;
+        color: #6b7280;
+        opacity: 0.85;
+      }
+
+      /* Bottom fixed ad container */
+      .ad-container {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 6px 8px;
+        background: rgba(2, 6, 23, 0.96);
+        border-top: 1px solid rgba(75, 85, 99, 0.7);
+        display: flex;
+        justify-content: center;
+        z-index: 50;
+      }
+
+      .ad-inner {
+        max-width: 728px;
+        width: 100%;
+      }
+
+      /* Animations */
+      @keyframes floatUpDown {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
+      }
+
+      @keyframes glowPulse {
+        0%, 100% { opacity: 0.55; transform: scale(1); }
+        50% { opacity: 0.95; transform: scale(1.06); }
+      }
+
+      @keyframes cardIn {
+        from {
+          opacity: 0;
+          transform: translateY(18px) scale(0.97);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      @keyframes underlineGrow {
+        0% { width: 0; opacity: 0; }
+        40% { width: 25%; opacity: 1; }
+        100% { width: 70%; opacity: 1; }
+      }
+
+      /* Small screens tweak */
+      @media (max-width: 400px) {
+        .logo-ring {
+          width: 130px;
+          height: 130px;
+        }
+        h1 {
+          font-size: 1.6rem;
+        }
+        button {
+          min-width: 120px;
+          font-size: 0.85rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="ball-bg"></div>
+
+    <div class="card">
+      <div class="logo-wrapper">
+        <div class="logo-glow"></div>
+        <div class="logo-ring">
+          <img src="logo.png" alt="Balnix01 Logo">
+        </div>
+      </div>
+
+      <div class="badge">
+        <span>Countryball Creator • Balnix01</span>
+      </div>
+
+      <h1>Balnix01</h1>
+
+      <p class="tagline">Countryballs • History • Unsolved Mysteries</p>
+
+      <div class="pill-row">
+        <div class="pill">
+          <span class="pill-flag"></span>
+          <span>Clean India Countryballs</span>
+        </div>
+        <div class="pill">
+          🎬 Story-Driven Shorts
+        </div>
+        <div class="pill">
+          🧠 Mystery Deep Dives
+        </div>
+      </div>
+
+      <p class="stats">37K+ subscribers • 100+ videos</p>
+      <p class="upload">🔥 New shorts & videos dropping regularly</p>
+
+      <p class="about">
+        Welcome to <span class="highlight">Balnix01</span> – the HQ of
+        clean countryball animation, wild history timelines and
+        chill-but-deep mystery stories. Pick a platform, join the
+        countryball universe and share it with your friends! 🚀
+      </p>
+
+      <div class="buttons">
+        <a href="https://youtube.com/@balnix01?si=3RCHDkXFZYK-VXFj" class="yt">
+          <button>YouTube</button>
+        </a>
+
+        <a href="https://www.instagram.com/balnix01_cb?igsh=MTF2Mjk2ODNiZTJnOA==" class="in">
+          <button>Instagram</button>
+        </a>
+
+        <a href="https://t.me/Trendy_boyz" class="te">
+          <button>Telegram</button>
+        </a>
+
+        <a href="https://www.facebook.com/share/17etFgDJLY/" class="face">
+          <button>Facebook</button>
+        </a>
+
+        <a href="https://www.snapchat.com/add/balnix01?share_id=U-OYfuK96Go&locale=en-US" class="snap">
+          <button>Snapchat</button>
+        </a>
+
+        <a href="https://mojapp.in/@balnix01?referrer=V35U3At-f7x7bh" class="moj">
+          <button>Moj</button>
+        </a>
+      </div>
+
+      <p class="footer-text">
+        Tap a button, binge a few videos, then <span>hit subscribe</span> 😎
+      </p>
+    </div>
+
+    <!-- Bottom fixed Google Ad (page ke bottom me) -->
+    <div class="ad-container">
+      <div class="ad-inner">
+        <!-- Replace data-ad-client & data-ad-slot with your real values -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+             data-ad-slot="1234567890"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+    </div>
+
+    <script>
+      // Extra protection: block context menu + copy/drag (normal users)
+      document.addEventListener("contextmenu", function (e) {
+        e.preventDefault();
+      });
+
+      ["copy", "cut", "paste", "dragstart"].forEach(function (evt) {
+        document.addEventListener(evt, function (e) {
+          e.preventDefault();
+        });
+      });
+    </script>
+  </body>
+</html>
